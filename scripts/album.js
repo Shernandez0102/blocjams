@@ -40,6 +40,7 @@
       ;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
      return $(template);
 =======
      var $row = $(template);
@@ -91,6 +92,9 @@
           // #3
     return $row;
 >>>>>>> Checkpoint-18
+=======
+     return $(template);
+>>>>>>> Checkpoint-17
  };
 
 
