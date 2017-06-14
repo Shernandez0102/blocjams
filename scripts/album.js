@@ -39,7 +39,7 @@
       + '</tr>'
       ;
 
-     return template;
+     return $(template);
  };
 
 
