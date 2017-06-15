@@ -39,6 +39,7 @@
       + '</tr>'
       ;
 
+<<<<<<< HEAD
      var $row = $(template);
 
      var clickHandler = function() {
@@ -87,6 +88,9 @@
     $row.hover(onHover, offHover);
           // #3
     return $row;
+=======
+     return $(template);
+>>>>>>> ba676773e0ccf72c5bebf8d6850a661ec315dc6d
  };
 
 
