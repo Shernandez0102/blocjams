@@ -40,6 +40,12 @@
       ;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+     return $(template);
+=======
+>>>>>>> Checkpoint-19
      var $row = $(template);
 
      var clickHandler = function() {
@@ -88,9 +94,16 @@
     $row.hover(onHover, offHover);
           // #3
     return $row;
+<<<<<<< HEAD
 =======
      return $(template);
 >>>>>>> ba676773e0ccf72c5bebf8d6850a661ec315dc6d
+=======
+>>>>>>> Checkpoint-18
+=======
+     return $(template);
+>>>>>>> Checkpoint-17
+>>>>>>> Checkpoint-19
  };
 
 
