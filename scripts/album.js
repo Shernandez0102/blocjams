@@ -12,38 +12,39 @@
      var clickHandler = function() {
          // clickHandler logic
 
-         var songNumber = parseInt($(this).attr('data-song-number'));
+         var songNumber = ($(this).attr('data-song-number');
 
-         if (currentlyPlayingSong !== null) {
-                  var currentlyPlayingSong = $('.song-item-number[data-song-number = " ' +currentlyPlayingSong + '"]');
-                  currentlyPlayingCell.html(currentlyPlayingSong);
+         if (currentlyPlayingSongNumber !== null) {
+                  var currentlyPlayingCell = $('.song-item-number[data-song-number = " ' +currentlyPlayingSongNumber + '"]');
+                  currentlyPlayingCell.html(currentlyPlayingSongNumber);
        }
          if (currentlyPlayingSongNumber !== songNumber) {
            $(this).html(pauseButtonTemplate);
            currentlyPlayingSongNumber = songNumber;
            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+           updatePlayerBarSong();
          } else if (currentlyPlayingSongNumber === songNumber) {
                   $(this).html(playButtonTemplate);
                   $('.main-controls .play-pause').html(playerBarPlayButton);
-                  currentlyPlayingSong = null;
+                  currentlyPlayingSongNumber = null;
                   currentSongFromAlbum = null;
          }
      };
 
 
       var onHover = function(event) {
-        var songNumberCell = parseInt($(this).find('.song-item-number'));
-        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = (songNumberCell.attr('data-song-number');
 
-        if (songNumber !== currentlyPlayingSong) {
+        if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(playButtonTemplate);
         }
       };
       var offHover = function(event) {
-        var songNumberCell = parseInt($(this).find('.song-item-number'));
-        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
-        console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
-      if (songNumber !== currentlyPlayingSong) {
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
+        // console.log("songNumber type is " + typeof songNumber + "\n and currentlyPlayingSongNumber type is " + typeof currentlyPlayingSongNumber);
+      if (songNumber !== currentlyPlayingSongNumber) {
           songNumberCell.html(songNumber);
       }
 
@@ -134,7 +135,6 @@
  var playerBarPauseButton = '<span class="ion-pause"></span>';
 
  // Store state of playing songs
- var currentlyPlayingSong = null;
  var currentAlbum = null;
  var currentlyPlayingSongNumber = null;
  var currentSongFromAlbum = null;
