@@ -39,14 +39,32 @@
       + '</tr>'
       ;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-     return $(template);
-=======
->>>>>>> Checkpoint-19
      var $row = $(template);
+
+     var onHover = function(event) {
+       var songNumberCell = $(this).find('.song-item-number');
+       var songNumber = songNumberCell.attr('data-song-number');
+
+       if (songNumber !== currentlyPlayingSong) {
+           songNumberCell.html(playButtonTemplate);
+       }
+     };
+     var offHover = function(event) {
+       var songNumberCell = $(this).find('.song-item-number');
+     var songNumber = songNumberCell.attr('data-song-number');
+
+     if (songNumber !== currentlyPlayingSong) {
+         songNumberCell.html(songNumber);
+     }
+
+ };
+     // #1
+    $row.find('.song-item-number').click(clickHandler);
+          // #2
+    $row.hover(onHover, offHover);
+          // #3
+    return $row;
+  };
 
      var clickHandler = function() {
          // clickHandler logic
@@ -67,44 +85,7 @@
      };
 
 
-      var onHover = function(event) {
-        var songNumberCell = $(this).find('.song-item-number');
-        var songNumber = songNumberCell.attr('data-song-number');
-
-        if (songNumber !== currentlyPlayingSong) {
-            songNumberCell.html(playButtonTemplate);
-        }
-      };
-      var offHover = function(event) {
-        var songNumberCell = $(this).find('.song-item-number');
-      var songNumber = songNumberCell.attr('data-song-number');
-
-      if (songNumber !== currentlyPlayingSong) {
-          songNumberCell.html(songNumber);
-      }
-
-  };
-
-
-
-
-     // #1
-    $row.find('.song-item-number').click(clickHandler);
-          // #2
-    $row.hover(onHover, offHover);
-          // #3
-    return $row;
-<<<<<<< HEAD
-=======
-     return $(template);
->>>>>>> ba676773e0ccf72c5bebf8d6850a661ec315dc6d
-=======
->>>>>>> Checkpoint-18
-=======
-     return $(template);
->>>>>>> Checkpoint-17
->>>>>>> Checkpoint-19
- };
+    //  return $(template);
 
 
  var setCurrentAlbum = function(album) {
