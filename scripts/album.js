@@ -61,18 +61,21 @@
      var $albumImage = $('.album-cover-art');
      var $albumSongList = $('.album-view-song-list');
      // #2
-     $albumTitle.text(album.title);
-     $albumArtist.text(album.artist);
-     $albumReleaseInfo.text(album.year + ' ' + album.label);
-     $albumImage.attr('src', album.albumArtUrl);
+
+    $albumTitle.text(album.title);
+    $albumArtist.text(album.artist);
+    $albumReleaseInfo.text(album.year + ' ' + album.label);
+    $albumImage.attr('src', album.albumArtUrl);
 
      // #3
-     $albumSongList.empty();
+      $albumSongList.empty();
 
      // #4
      for (var i = 0; i < album.songs.length; i++) {
        var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-      $albumSongList.append($newRow);
+
+       $albumSongList.append($newRow);
+
      }
  };
 
