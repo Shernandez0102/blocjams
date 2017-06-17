@@ -40,8 +40,10 @@
 
 
      var onHover = function(event) {
-       var songNumberCell = parseInt($(this).find('.song-item-number'));
+       var songNumberCell = $(this).find('.song-item-number');
+       console.log("What is my songNumberCell?", songNumberCell);
        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
+       console.log("What is mysongNumber?", songNumber);
 
        if (songNumber !== currentlyPlayingSongNumber) {
            songNumberCell.html(playButtonTemplate);
@@ -49,7 +51,7 @@
      };
 
      var offHover = function(event) {
-     var songNumberCell = parseInt($(this).find('.song-item-number'));
+     var songNumberCell = $(this).find('.song-item-number');
      var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
      if (songNumber !== currentlyPlayingSongNumber) {
