@@ -18,7 +18,6 @@ var getSongNumberCell = function (number) {
       ;
 
      var $row = $(template);
-}
 
      var clickHandler = function() {
 
