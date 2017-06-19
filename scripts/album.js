@@ -26,8 +26,8 @@ var setVolume = function(volume) {
 
 
 var getSongNumberCell = function (number) {
-  return $('.song-item-number[data-song-number="' + number + '"]')
-}
+  return $('.song-item-number[data-song-number="' + number + '"]');
+};
 
 
 
@@ -51,28 +51,28 @@ var getSongNumberCell = function (number) {
              // Revert to song number for currently playing song because user started playing new song.
 
                  var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
-
-                 currentlyPlayingCell.html(currentlyPlayingSongNumber);
+                 currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+                currentlyPlayingCell.html(currentlyPlayingSongNumber);
          }
 
 
         if (currentlyPlayingSongNumber !== songNumber) {
              // Switch from Play -> Pause button to indicate new song is playing.
              $(this).html(pauseButtonTemplate);
-            setSong(songNumber
+            setSong(songNumber);
             currentSoundFile.play();
             updatePlayerBarSong();
         } else if (currentlyPlayingSongNumber === songNumber) {
              // Switch from Pause -> Play button to pause currently playing song.
              if (currentSoundFile.isPaused()) {
-+                $(this).html(pauseButtonTemplate);
-+                $('.main-controls .play-pause').html(playerBarPauseButton);
-+                currentSoundFile.play();
-+            } else {
-+                $(this).html(playButtonTemplate);
-+                $('.main-controls .play-pause').html(playerBarPlayButton);
-+                currentSoundFile.pause();
-+            }
+                $(this).html(pauseButtonTemplate);
+                $('.main-controls .play-pause').html(playerBarPauseButton);
+                currentSoundFile.play();
+           } else {
+                $(this).html(playButtonTemplate);
+                $('.main-controls .play-pause').html(playerBarPlayButton);
+                currentSoundFile.pause();
+            }
          }
 
      };
@@ -105,7 +105,7 @@ var getSongNumberCell = function (number) {
     $row.hover(onHover, offHover);
           // #3
     return $row;
-  };
+  }
 
 
 
