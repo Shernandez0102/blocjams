@@ -19,30 +19,6 @@ var getSongNumberCell = function (number) {
 
      var $row = $(template);
 
-     var onHover = function(event) {
-       var songNumberCell = $(this).find('.song-item-number');
-       var songNumber = songNumberCell.attr('data-song-number');
-
-       if (songNumber !== currentlyPlayingSong) {
-           songNumberCell.html(playButtonTemplate);
-       }
-     };
-     var offHover = function(event) {
-       var songNumberCell = $(this).find('.song-item-number');
-     var songNumber = songNumberCell.attr('data-song-number');
-
-     if (songNumber !== currentlyPlayingSong) {
-         songNumberCell.html(songNumber);
-     }
-
- };
-     // #1
-    $row.find('.song-item-number').click(clickHandler);
-          // #2
-    $row.hover(onHover, offHover);
-          // #3
-    return $row;
-  };
 
      var clickHandler = function() {
 
