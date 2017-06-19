@@ -1,7 +1,6 @@
-var musicBar = $('.main-controls .play-pause');
-
 var togglePlayFromPlayerBar = function () {
-  if (currentSoundFile.isPaused() && song-item-number.click()) {
+  console.log ("currentSoundFile", currentSoundFile);
+  if (currentSoundFile.pause() && currentSoundFile.play()) {
     songNumberCell = songNumberCell.pause();
     $(this).html(pauseButtonTemplate);
     currentSoundFile.play();
@@ -10,7 +9,7 @@ var togglePlayFromPlayerBar = function () {
     currentSoundFile.playButtonTemplate();
     currentSoundFile.pause();
   }
-
+togglePlayFromPlayerBar();
 }
 
 
@@ -84,6 +83,7 @@ var getSongNumberCell = function (number) {
                 $(this).html(pauseButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPauseButton);
                 currentSoundFile.play();
+
            } else {
                 $(this).html(playButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPlayButton);
@@ -96,9 +96,7 @@ var getSongNumberCell = function (number) {
 
      var onHover = function(event) {
        var songNumberCell = $(this).find('.song-item-number');
-       console.log("What is my songNumberCell?", songNumberCell);
        var songNumber = parseInt(songNumberCell.attr('data-song-number'));
-       console.log("What is mysongNumber?", songNumber);
 
        if (songNumber !== currentlyPlayingSongNumber) {
            songNumberCell.html(playButtonTemplate);
@@ -239,12 +237,12 @@ var previousSong = function() {
 
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
+ var $musicBar = $('.main-controls .play-pause');
 
  $(document).ready(function() {
    setCurrentAlbum(albumPicasso);
    $previousButton.click(previousSong);
    $nextButton.click(nextSong);
-
-   togglePlayFromPlayerBar.click(musicBar);
+   $musicBar.click(togglePlayFromPlayerBar);
 
 });
