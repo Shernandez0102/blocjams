@@ -1,15 +1,16 @@
 var togglePlayFromPlayerBar = function () {
-  console.log ("currentSoundFile", currentSoundFile);
-  if (currentSoundFile.pause() && currentSoundFile.play()) {
-    songNumberCell = songNumberCell.pause();
-    $(this).html(pauseButtonTemplate);
+  if (currentSoundFile.isPaused()) {
+    $musicBar.html(playerBarPauseButton);
     currentSoundFile.play();
-  } else if (currentSoundFile.play() && currentlyPlayingSongNumber.click()) {
-    songNumberCell = songNumberCell.play();
-    currentSoundFile.playButtonTemplate();
-    currentSoundFile.pause();
-  }
-togglePlayFromPlayerBar();
+  // } else if (currentSoundFile.play() && currentlyPlayingSongNumber.click()) {
+  //   songNumberCell = songNumberCell.play();
+  //   currentSoundFile.playButtonTemplate();
+  //   currentSoundFile.pause();
+  // }
+} else if (currentSoundFile.play()) {
+  $musicBar.html(playerBarPlayButton);
+  currentSoundFile.pause();
+}
 }
 
 
