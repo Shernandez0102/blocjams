@@ -81,10 +81,21 @@ var getSongNumberCell = function (number) {
 
         if (currentlyPlayingSongNumber !== songNumber) {
              // Switch from Play -> Pause button to indicate new song is playing.
-             $(this).html(pauseButtonTemplate);
+
             setSong(songNumber);
             currentSoundFile.play();
+            updateSeekBarWhileSongPlays();
+            currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+
+
+            var $volumeFill = $('.volume .fill');
+            var $volumeThumb = $('.volume .thumb');
+            $volumeFill.width(currentVolume + '%');
+            $volumeThumb.css({left: currentVolume + '%'});
+
+            $(this).html(pauseButtonTemplate);
             updatePlayerBarSong();
+
         } else if (currentlyPlayingSongNumber === songNumber) {
              // Switch from Pause -> Play button to pause currently playing song.
              if (currentSoundFile.isPaused()) {
@@ -173,7 +184,6 @@ var getSongNumberCell = function (number) {
   };
 
 
-
  var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
      var offsetXPercent = seekBarFillRatio * 100;
      // #1
@@ -222,7 +232,7 @@ var getSongNumberCell = function (number) {
                               } else {
                                   setVolume(seekBarFillRatio);
                               }
-                              
+
                   updateSeekPercentage($seekBar, seekBarFillRatio);
               });
 
