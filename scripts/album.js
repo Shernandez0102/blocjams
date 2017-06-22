@@ -1,3 +1,8 @@
+var setCurrentTimePlayerBar = function (currentTime) {
+  $currentTime.text($(this).getTime());
+};
+
+
 var togglePlayFromPlayerBar = function () {
   if (currentSoundFile.isPaused()) {
     $musicBar.html(playerBarPauseButton);
@@ -84,7 +89,7 @@ var getSongNumberCell = function (number) {
 
             setSong(songNumber);
             currentSoundFile.play();
-            updateSeekBarWhileSongPlays();
+            updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
             currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 
 
@@ -174,11 +179,13 @@ var getSongNumberCell = function (number) {
       if (currentSoundFile) {
           // #10
           currentSoundFile.bind('timeupdate', function(event) {
-              // #11
+
+            // #11
               var seekBarFillRatio = this.getTime() / this.getDuration();
               var $seekBar = $('.seek-control .seek-bar');
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
+              setCurrentTimePlayerBar(currentTime);
           });
       }
   };
@@ -280,7 +287,7 @@ var nextSong = function() {
     // Set a new current song
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
-    updateSeekBarWhileSongPlays();
+    updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
@@ -308,7 +315,7 @@ var previousSong = function() {
     // Set a new current song
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
-    updateSeekBarWhileSongPlays();
+    updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
@@ -341,6 +348,7 @@ var previousSong = function() {
  var $previousButton = $('.main-controls .previous');
  var $nextButton = $('.main-controls .next');
  var $musicBar = $('.main-controls .play-pause');
+ var $currentTime = $('.currently-playing .current-time');
 
  $(document).ready(function() {
    setCurrentAlbum(albumPicasso);
