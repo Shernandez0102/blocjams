@@ -1,5 +1,5 @@
-var setCurrentTimePlayerBar = function (currentTime) {
-  $currentTime.text($(this).getTime());
+var setCurrentTimePlayerBar = function ($currentTime) {
+  $('current-time').text($(this).getTime());
 };
 
 
@@ -89,7 +89,7 @@ var getSongNumberCell = function (number) {
 
             setSong(songNumber);
             currentSoundFile.play();
-            updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
+            updateSeekBarWhileSongPlays();
             currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
 
 
@@ -185,7 +185,7 @@ var getSongNumberCell = function (number) {
               var $seekBar = $('.seek-control .seek-bar');
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
-              setCurrentTimePlayerBar(currentTime);
+              setCurrentTimePlayerBar($currentTime);
           });
       }
   };
@@ -287,7 +287,7 @@ var nextSong = function() {
     // Set a new current song
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
-    updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
+    updateSeekBarWhileSongPlays();
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
@@ -315,7 +315,7 @@ var previousSong = function() {
     // Set a new current song
     setSong(currentSongIndex + 1);
     currentSoundFile.play();
-    updateSeekBarWhileSongPlays.setCurrentTimePlayerBar(currentTime);
+    updateSeekBarWhileSongPlays();
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
