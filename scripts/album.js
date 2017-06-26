@@ -1,7 +1,10 @@
-var setCurrentTimePlayerBar = function ($currentTime) {
-  $('current-time').text($(this).getTime());
+var setCurrentTimePlayerBar = function (currentTime) {
+  $('.current-time').text(currentSoundFile.getTime());
 };
 
+var setTotalTimeInPlayerBar = function (totalTime) {
+  $('.total-time').text(currentSoundFile.getDuration());
+};
 
 var togglePlayFromPlayerBar = function () {
   if (currentSoundFile.isPaused()) {
@@ -185,7 +188,8 @@ var getSongNumberCell = function (number) {
               var $seekBar = $('.seek-control .seek-bar');
 
               updateSeekPercentage($seekBar, seekBarFillRatio);
-              setCurrentTimePlayerBar($currentTime);
+              setCurrentTimePlayerBar(this.getTime());
+              setTotalTimeInPlayerBar(this.getDuration());
           });
       }
   };
@@ -353,6 +357,7 @@ var previousSong = function() {
  $(document).ready(function() {
    setCurrentAlbum(albumPicasso);
    setupSeekBars();
+
 
    $previousButton.click(previousSong);
    $nextButton.click(nextSong);
