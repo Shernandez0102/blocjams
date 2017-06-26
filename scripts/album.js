@@ -1,9 +1,25 @@
 var setCurrentTimePlayerBar = function (currentTime) {
-  $('.current-time').text(currentSoundFile.getTime());
+  console.log("FilterTimeCode", filterTimeCode(currentTime));
+  $('.current-time').text(filterTimeCode(currentTime));
 };
 
 var setTotalTimeInPlayerBar = function (totalTime) {
-  $('.total-time').text(currentSoundFile.getDuration());
+  $('.total-time').text(filterTimeCode(totalTime));
+};
+
+var filterTimeCode = function (timeInSeconds) {
+  var seconds = Math.floor(parseFloat(timeInSeconds));
+  var minutes = Math.floor(seconds /60);
+  var leftOverSeconds = (seconds % 60);
+  var timeFormatted = minutes + ":";
+  if (leftOverSeconds < 10) {
+    timeFormatted += "0" + leftOverSeconds;
+  } else {
+    timeFormatted += leftOverSeconds;
+  }
+
+  return timeFormatted;
+
 };
 
 var togglePlayFromPlayerBar = function () {
